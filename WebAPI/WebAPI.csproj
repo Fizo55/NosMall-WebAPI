@@ -48,37 +48,48 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.Core">
+    <Reference Include="OpenNos.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.Core.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.DAL">
+    <Reference Include="OpenNos.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.DAL.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.DAL.DAO">
+    <Reference Include="OpenNos.DAL.DAO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.DAL.DAO.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.DAL.EF">
+    <Reference Include="OpenNos.DAL.EF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.DAL.EF.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.DAL.Interface">
+    <Reference Include="OpenNos.DAL.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.DAL.Interface.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.DAL.Mock">
+    <Reference Include="OpenNos.DAL.Mock, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.DAL.Mock.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.Data">
+    <Reference Include="OpenNos.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.Data.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.Domain">
+    <Reference Include="OpenNos.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.Domain.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.Mapper">
+    <Reference Include="OpenNos.Mapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.Mapper.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.Master.Library">
+    <Reference Include="OpenNos.Master.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.Master.Library.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNos.SCS">
+    <Reference Include="OpenNos.SCS, Version=1.2.6505.26681, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\OpenNos.SCS.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
