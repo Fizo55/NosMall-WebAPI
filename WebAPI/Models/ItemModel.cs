@@ -11,5 +11,7 @@
         public byte Rare { get; set; }
 
         public byte Upgrade { get; set; }
+
+        public byte Level { get; set; }
     }
 }

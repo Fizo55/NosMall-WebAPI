@@ -14,17 +14,22 @@ namespace WebAPI.Controllers
         {
             try
             {
-                MallServiceClient.Instance.Authenticate(ConfigurationManager.AppSettings["MasterAuthKey"]);
-                MallServiceClient.Instance.SendItem(model.CharacterId, new MallItem()
+                if (MallServiceClient.Instance.Authenticate(ConfigurationManager.AppSettings["MasterAuthKey"]))
                 {
-                    ItemVNum = model.ItemVNum,
-                    Amount = model.Amount,
-                    Rare = model.Rare,
-                    Upgrade = model.Upgrade
-                });
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] {DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second} - Item send to the CharacterId : {model.CharacterId}");
-                return Ok($"Item succeffuly send to the character {model.CharacterId}");
+                    MallServiceClient.Instance.SendItem(model.CharacterId, new MallItem()
+                    {
+                        ItemVNum = model.ItemVNum,
+                        Amount = model.Amount,
+                        Rare = model.Rare,
+                        Upgrade = model.Upgrade,
+                        Level = model.Level
+                    });
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"[INFO] {DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second} - Item send to the CharacterId : {model.CharacterId}");
+                    return Ok($"Item succeffuly send to the character {model.CharacterId}");
+                }
+
+                return BadRequest();
             }
             catch(Exception e)
             {
