@@ -15,5 +15,7 @@
         public byte Upgrade { get; set; }
 
         public byte Level { get; set; }
+
+        public string VerificationToken { get; set; }
     }
 }
