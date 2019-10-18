@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                if (MallServiceClient.Instance.Authenticate(ConfigurationManager.AppSettings["MasterAuthKey"]))
+                if (MallServiceClient.Instance.Authenticate(model.MallAuthKey))
                 {
                     MallServiceClient.Instance.SendItem(model.CharacterId, new MallItem()
                     {
