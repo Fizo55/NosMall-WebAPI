@@ -2,6 +2,8 @@
 {
     public class ItemModel
     {
+        public string MallAuthKey { get; set; }
+
         public long CharacterId { get; set; }
 
         public short ItemVNum { get; set; }
