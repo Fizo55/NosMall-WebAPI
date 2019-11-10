@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
@@ -10,6 +12,7 @@ namespace WebAPI.Controllers
 {
     public class PatchListController : ApiController
     {
+        public List<string> checkIfGenerated = new List<string>();
 
         [HttpPost]
         public IHttpActionResult Index([FromBody] PatchlistModel patchListModel)
@@ -17,13 +20,24 @@ namespace WebAPI.Controllers
             if (patchListModel == null) return BadRequest();
 
             StringBuilder stringBuilder = new StringBuilder();
-            int count = patchListModel.FileName.Length;
+            int count = patchListModel.FileName.Length == 1 ? patchListModel.FileName.Length - 1 : patchListModel.FileName.Length;
             int count1 = 0;
-            foreach (string name in patchListModel.FileName)
+            foreach (string names in patchListModel.FileName)
             {
+                string name = names.Contains("/") ? names.Split('/').Last() : names;
+                string folder = names.Contains("/") ? names.Remove(names.LastIndexOf('/')) : string.Empty;
+
+                if (checkIfGenerated.Contains(name)) continue;
                 count1++; // increment the line counter
                 var client = new WebClient();
-                client.DownloadFile($"http://localhost/launcher/client_en/{name}", name); // TODO : Send the client_lang via the website
+                if (!string.IsNullOrEmpty(folder))
+                {
+                    client.DownloadFile($"http://localhost/web/launcher/client_{patchListModel.ClientLanguage}/{folder}/{name}", name);
+                }
+                else
+                {
+                    client.DownloadFile($"http://localhost/web/launcher/client_{patchListModel.ClientLanguage}/{name}", name);
+                }
                 string directory = name;
                 var fileInfo = new FileInfo(directory);
 
@@ -36,11 +50,19 @@ namespace WebAPI.Controllers
                     fileStream.Read(buffer, 0, (int)fileStream.Length);
                     MD5 md5 = new MD5CryptoServiceProvider();
                     byte[] checkSum = md5.ComputeHash(buffer);
-                    stringBuilder.Append($"{fileName} {BitConverter.ToString(checkSum).Replace("-", string.Empty)} {fileInfo.Length}");
+                    if (!string.IsNullOrEmpty(folder))
+                    {
+                        stringBuilder.Append($"./{folder}/{fileName} {BitConverter.ToString(checkSum).Replace("-", string.Empty)} {fileInfo.Length}");
+                    }
+                    else
+                    {
+                        stringBuilder.Append($"{fileName} {BitConverter.ToString(checkSum).Replace("-", string.Empty)} {fileInfo.Length}");
+                    }
                     if (count != count1) // If it's not the last line
                     {
                         stringBuilder.AppendFormat("{0}{1}", "  ", Environment.NewLine);
                     }
+                    checkIfGenerated.Add(fileName);
                 }
             }
 
