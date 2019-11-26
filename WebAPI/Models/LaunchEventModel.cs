@@ -2,7 +2,7 @@
 {
     public class LaunchEventModel
     {
-        public string EventName { get; set; }
+        public OpenNos.Domain.EventType EventName { get; set; }
 
         public string VerificationToken { get; set; }
     }

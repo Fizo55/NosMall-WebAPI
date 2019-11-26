@@ -13,10 +13,9 @@ namespace WebAPI.Controllers
         {
             if (launchEventModel.VerificationToken != ConfigurationManager.AppSettings["VerificationToken"]) return BadRequest();
 
-            // At least not necessary but just to check
-            if (MallServiceClient.Instance.Authenticate(ConfigurationManager.AppSettings["MasterAuthKey"]))
+            if (CommunicationServiceClient.Instance.Authenticate(ConfigurationManager.AppSettings["MasterAuthKey"]))
             {
-                ServerServiceClient.Instance.LaunchEvent(launchEventModel.EventName);
+                CommunicationServiceClient.Instance.RunGlobalEvent(launchEventModel.EventName);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Event {launchEventModel.EventName} have been started !");
                 Console.ResetColor();
