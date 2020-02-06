@@ -8,7 +8,7 @@
 
         public short ItemVNum { get; set; }
 
-        public ushort Amount { get; set; }
+        public short Amount { get; set; }
 
         public byte Rare { get; set; }
 

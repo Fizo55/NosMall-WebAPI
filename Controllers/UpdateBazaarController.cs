@@ -3,7 +3,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class UpdateBazaar : ApiController
+    public class UpdateBazaarController : ApiController
     {
         [HttpPost]
         public IHttpActionResult Index(BazaarModel bazaarModel)

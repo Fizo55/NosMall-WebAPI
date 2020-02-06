@@ -1,4 +1,5 @@
-﻿using OpenNos.Master.Library.Client;
+﻿using OpenNos.Domain;
+using OpenNos.Master.Library.Client;
 using System;
 using System.Configuration;
 using System.Web.Http;
@@ -12,8 +13,8 @@ namespace WebAPI.Controllers
         public IHttpActionResult Index([FromBody] LaunchEventModel launchEventModel)
         {
             if (launchEventModel.VerificationToken != ConfigurationManager.AppSettings["VerificationToken"]) return BadRequest();
-            
-            if (!Enum.TryParse(launchEventModel.EventName.ToString(), out EventType eventType)) return BadRequest(); // event was not found
+
+            if (Enum.TryParse(launchEventModel.EventName.ToString(), out EventType eventType)) return BadRequest(); // event was not found
 
             if (CommunicationServiceClient.Instance.Authenticate(ConfigurationManager.AppSettings["MasterAuthKey"]))
             {
