@@ -283,6 +283,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BuyController.cs" />
     <Compile Include="Controllers\LaunchEventController.cs" />
+    <Compile Include="Controllers\LeavePlayerController.cs" />
     <Compile Include="Controllers\PatchlistController.cs" />
     <Compile Include="Controllers\RefreshItemPriceController.cs" />
     <Compile Include="Controllers\RefreshPortalController.cs" />
@@ -291,6 +292,7 @@
     <Compile Include="Models\BazaarModel.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\LaunchEventModel.cs" />
+    <Compile Include="Models\LeavePlayerModel.cs" />
     <Compile Include="Models\NosmallItemModel.cs" />
     <Compile Include="Models\PatchlistModel.cs" />
     <Compile Include="Models\PortalRefreshModel.cs" />
